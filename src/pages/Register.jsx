@@ -8,7 +8,14 @@ const Register = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+
+        const regex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{7,}$/;
+        if(!regex.test(password)){
+            return;
+        }
+
+        console.log("Hello");
+
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
