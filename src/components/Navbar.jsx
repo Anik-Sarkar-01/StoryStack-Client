@@ -1,12 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 const Navbar = () => {
+
+    const { user, signOutUser } = useContext(AuthContext);
+
     const navItems = <>
-        <li><a>Item 1</a></li>
-        
-        <li><a>Item 3</a></li>
+        <li><NavLink to={"/"}>Home</NavLink></li>
+        <li><NavLink to={"/all-blogs"}>All Blogs</NavLink></li>
+        <li><NavLink to={"/add-blog"}>Add Blog</NavLink></li>
+        <li><NavLink to={"/featured-blog"}>Featured Blogs</NavLink></li>
+        <li><NavLink to={"/wish-list"}>Wishlist</NavLink></li>
     </>
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then(() => {
+                console.log("Sign Out Successful");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+    }
+
     return (
         <div className="navbar bg-base-100 shadow-sm">
             <div className="navbar-start">
@@ -20,7 +37,7 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">StoryStack</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -28,8 +45,18 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/register" className='btn'>Register</Link>
-                <Link to="/login" className="btn">Login</Link>
+                {
+                    user ? <>
+                        <div className='flex items-center gap-3'>
+                            <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
+
+                            <button onClick={handleSignOut} className='btn'>Logout</button>
+                        </div>
+                    </> : <>
+                        <Link to="/register" className='btn'>Register</Link>
+                        <Link to="/login" className="btn">Login</Link>
+                    </>
+                }
             </div>
         </div>
     );
