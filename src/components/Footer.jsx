@@ -3,11 +3,11 @@ import logo from "../assets/logo-64.png";
 
 const Footer = () => {
     return (
-        <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
+        <footer className="footer sm:footer-horizontal bg-[#FEF9E1] text-base-content p-10">
             <aside>
                 <img src={logo} alt="" />
                 <p>
-                    ACME Industries Ltd.
+                     Story Stack Ltd.
                     <br />
                     Publishing reliable Blog since 1992
                 </p>
