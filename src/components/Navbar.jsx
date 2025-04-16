@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
+import logo from "../assets/logo-64.png";
 
 const Navbar = () => {
 
@@ -37,7 +38,10 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">StoryStack</a>
+                <div className='flex items-center'>
+                    <img className='w-12' src={logo} alt="" />
+                    <a className="btn btn-ghost text-xl">StoryStack</a>
+                </div>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -49,12 +53,13 @@ const Navbar = () => {
                     user ? <>
                         <div className='flex items-center gap-3'>
                             <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
-
                             <button onClick={handleSignOut} className='btn'>Logout</button>
                         </div>
                     </> : <>
-                        <Link to="/register" className='btn'>Register</Link>
-                        <Link to="/login" className="btn">Login</Link>
+                        <div className='flex gap-3'>
+                            <Link to="/register" className='btn'>Register</Link>
+                            <Link to="/login" className="btn">Login</Link>
+                        </div>
                     </>
                 }
             </div>
