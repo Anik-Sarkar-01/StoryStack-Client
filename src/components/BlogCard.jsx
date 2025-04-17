@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BlogCard = ({ blog }) => {
-    const { title, category, shortDescription } = blog || {};
+    const { _id, title, category, shortDescription } = blog || {};
     return (
-        <div className="card rounded-none bg-base-100 w-96 shadow-sm">
+        <div className="card rounded-none bg-base-100 shadow-xl">
             <figure>
                 <img
                     src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
@@ -16,7 +17,7 @@ const BlogCard = ({ blog }) => {
                 </h2>
                 <p>{shortDescription}..</p>
                 <div className="card-actions justify-center">
-                    <button className="btn">Details</button>
+                    <Link to={`blog/${_id}`} className="btn">Details</Link>
                     <button className="btn">WishList</button>
                 </div>
             </div>
