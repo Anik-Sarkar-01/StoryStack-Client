@@ -1,8 +1,32 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import AuthContext from '../context/AuthContext';
 
 const BlogCard = ({ blog }) => {
-    const { _id, title, category, shortDescription } = blog || {};
+    const { user } = useContext(AuthContext);
+    const { _id, title, imageUrl, category, shortDescription, longDescription, author, publishDate } = blog || {};
+    const handleWishList = async() => {
+        const wishBlogData = {
+            id: _id,
+            title,
+            imageUrl,
+            category,
+            shortDescription,
+            longDescription,
+            publishDate,
+            author,
+            userEmail: user?.email,
+        }
+
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-wishlist`, wishBlogData);
+            console.log(data);
+        } catch (err) {
+            console.log(err);
+        }
+
+    }
     return (
         <div className="card rounded-none bg-base-100 shadow-xl">
             <figure>
@@ -18,7 +42,7 @@ const BlogCard = ({ blog }) => {
                 <p>{shortDescription}..</p>
                 <div className="card-actions justify-start">
                     <Link to={`/blog/${_id}`} className="btn">Details</Link>
-                    <button className="btn">WishList</button>
+                    <button onClick={handleWishList} className="btn">WishList</button>
                 </div>
             </div>
         </div>
