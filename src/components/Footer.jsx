@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer className="footer sm:footer-horizontal bg-[#FEF9E1] text-base-content p-10">
             <aside>
-                <img src={logo} alt="" />
+                <img className='w-20' src={logo} alt="" />
                 <p>
                      Story Stack Ltd.
                     <br />

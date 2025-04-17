@@ -39,7 +39,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                    <img className='w-12' src={logo} alt="" />
+                    <img className='w-14' src={logo} alt="" />
                     <a className="btn btn-ghost text-xl">StoryStack</a>
                 </div>
             </div>
