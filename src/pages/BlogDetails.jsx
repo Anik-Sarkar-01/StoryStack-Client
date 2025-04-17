@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 
@@ -58,10 +58,11 @@ const BlogDetails = () => {
                     <p className='text-justify'><span className='font-semibold'>Category:</span> {category}</p>
                     <p className='text-justify'><span className='font-semibold'>Details:</span> {longDescription}</p>
                     <p className='text-justify'><span className='font-semibold'>Author:</span> {author?.name}</p>
-                    <div>
-                        <button className='btn'>Update</button>
-                    </div>
+
                     {(author?.email === user.email) ? <>
+                        <div>
+                            <Link to={`/update-blog/${_id}`} className='btn'>Update Blog</Link>
+                        </div>
                         <p className='text-xl font-semibold text-amber-300'>"Can not comment on own Blog!"</p>
                     </> : <>
                         <form onSubmit={handleComment} className="fieldset">
