@@ -50,8 +50,8 @@ const AllBlogs = () => {
                         type='text'
                         name='search'
                         onChange={e => setSearch(e.target.value)}
-                        placeholder='Enter Job Title'
-                        aria-label='Enter Job Title'
+                        placeholder='Enter Blog Title'
+                        aria-label='Enter Blog Title'
                         value={search}
                     />
 

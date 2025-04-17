@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
+import WishCard from '../components/WishCard';
 
 
 const WishList = () => {
@@ -18,8 +19,10 @@ const WishList = () => {
     }, [setWishlist, user.email]);
 
     return (
-        <div>
-            This is wishlist page: {wishlist?.length}
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 place-items-center py-5'> 
+            {
+                wishlist.map(wishItem => <WishCard key={wishItem._id} wishItem={wishItem} wishlist={wishlist} setWishlist={setWishlist}></WishCard>)
+            }
         </div>
     );
 };
