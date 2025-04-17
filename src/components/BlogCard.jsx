@@ -16,8 +16,8 @@ const BlogCard = ({ blog }) => {
                     <div className="badge badge-secondary">{category}</div>
                 </h2>
                 <p>{shortDescription}..</p>
-                <div className="card-actions justify-center">
-                    <Link to={`blog/${_id}`} className="btn">Details</Link>
+                <div className="card-actions justify-start">
+                    <Link to={`/blog/${_id}`} className="btn">Details</Link>
                     <button className="btn">WishList</button>
                 </div>
             </div>
