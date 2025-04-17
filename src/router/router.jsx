@@ -9,6 +9,7 @@ import AllBlogs from "../pages/AllBlogs";
 import BlogDetails from "../pages/BlogDetails";
 import PrivateRoute from "./PrivateRoute";
 import AddBlog from "../pages/AddBlog";
+import UpdateBlog from "../pages/UpdateBlog";
 
 const router = createBrowserRouter([
     {
@@ -22,7 +23,9 @@ const router = createBrowserRouter([
             },
             {
                 path: 'add-blog',
-                element: <AddBlog></AddBlog>
+                element: <PrivateRoute>
+                    <AddBlog></AddBlog>
+                </PrivateRoute>
             },
             {
                 path: 'all-blogs',
@@ -34,6 +37,12 @@ const router = createBrowserRouter([
                     <BlogDetails></BlogDetails>
                 </PrivateRoute>,
                 loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/all-blogs/${params.id}`)
+            },
+            {
+                path: 'update-blog',
+                element: <PrivateRoute>
+                    <UpdateBlog></UpdateBlog>
+                </PrivateRoute>
             },
             {
                 path: 'login',

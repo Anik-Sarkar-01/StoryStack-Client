@@ -1,11 +1,9 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import { format } from "date-fns";
 
 const AddBlog = () => {
-    const navigate = useNavigate();
     const { user } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
@@ -37,7 +35,6 @@ const AddBlog = () => {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-blog`, formData);
             form.reset();
             console.log(data);
-            // navigate('/my-posted-jobs')
         } catch (err) {
             console.log(err);
         }
@@ -71,7 +68,7 @@ const AddBlog = () => {
                             <input
                                 id='image_url'
                                 name='image_url'
-                                type='text'
+                                type='url'
                                 className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring'
                             />
                         </div>
