@@ -2,7 +2,7 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import loginLottie from "../assets/lottie/login-lottie.json";
 import AuthContext from '../context/AuthContext';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
     const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
@@ -43,7 +43,7 @@ const Login = () => {
                 <div className="text-center lg:text-left w-96">
                     <Lottie animationData={loginLottie} loop={true}></Lottie>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
                     <div className="card-body">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                         <form onSubmit={handleSubmit} className="fieldset">
@@ -56,6 +56,7 @@ const Login = () => {
                         </form>
                         <button onClick={handleGoogleLogin} className='btn btn-primary'>Login With Google</button>
                     </div>
+                    <p className='text-center font-semibold'>Don't have an Account? <Link to="/register" className='btn text-[16px] font-semibold rounded-none'> Register</Link></p>
                 </div>
             </div>
         </div>

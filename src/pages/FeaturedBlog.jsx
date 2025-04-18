@@ -62,7 +62,7 @@ const FeaturedBlog = () => {
     });
 
     return (
-        <div className="overflow-x-auto  border-base-content/5 bg-base-100 my-10">
+        <div className="overflow-x-auto border-base-content/5 bg-base-100 my-10">
 
             <table className="min-w-full table-auto border">
                 <thead className="bg-[#FEF9E1]">
