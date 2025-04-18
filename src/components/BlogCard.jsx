@@ -42,8 +42,8 @@ const BlogCard = ({ blog }) => {
                 <h2 className="card-title">{title}</h2>
                 <p>{shortDescription}..</p>
                 <div className="card-actions justify-start">
-                    <Link to={`/blog/${_id}`} className="btn rounded-none bg-[#F98514]">Details</Link>
-                    <button onClick={handleWishList} className="btn rounded-none bg-[#F98514]">WishList</button>
+                    <Link to={`/blog/${_id}`} className="btn rounded-none bg-[#F98514] text-white">Details</Link>
+                    <button onClick={handleWishList} className="btn rounded-none bg-[#F98514] text-white">WishList</button>
                 </div>
             </div>
         </div>

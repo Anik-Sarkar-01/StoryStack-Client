@@ -12,8 +12,8 @@ const Banner = () => {
             <div className="hero-content flex-col lg:flex-row-reverse ]">
                 <div className='flex-1'>
                     <h1 className="text-5xl font-bold">Discover the life changing stories!</h1>
-                    <p className="py-6">
-                        Professionally implement resource sucking mindshare vis-a-vis inexpensive niche markets. Enthusiastically embrace unique potentialities with bricks-and-clicks.
+                    <p className="py-6 text-justify">
+                        Step into the lives of remarkable individuals and uncover powerful stories of growth, resilience, and transformation that will inspire you to see the world and yourself in a whole new light.
                     </p>
                     <button className="btn bg-[#F6851F]">Read Now</button>
                 </div>

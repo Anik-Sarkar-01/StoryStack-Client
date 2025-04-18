@@ -33,7 +33,7 @@ const AllBlogs = () => {
                         onChange={e => setFilter(e.target.value)}
                         name='category'
                         id='category'
-                        className='border p-4 rounded-lg'
+                        className='select rounded-none focus:outline-none focus:ring-1 focus:ring-[#f7c490] focus:border-[#f7c490]'
                         value={filter}
                     >
                         <option value=''>Filter By Category</option>
@@ -44,21 +44,18 @@ const AllBlogs = () => {
                     </select>
                 </div>
 
-                <div className='flex p-1 overflow-hidden border rounded-lg  focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300'>
+                <div>
                     <input
-                        className='px-6 py-2 text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent'
+                        className='input rounded-none focus:outline-none focus:ring-1 focus:ring-[#f7c490] focus:border-[#f7c490]'
                         type='text'
                         name='search'
                         onChange={e => setSearch(e.target.value)}
                         placeholder='Enter Blog Title'
-                        aria-label='Enter Blog Title'
                         value={search}
-                    />
-
-                    
+                    />                    
                 </div>
 
-                <button onClick={handleReset} className='btn'>Reset</button>
+                <button onClick={handleReset} className='btn rounded-none bg-[#F98514] text-white'>Reset</button>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-10'>
