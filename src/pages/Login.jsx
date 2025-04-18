@@ -4,7 +4,7 @@ import loginLottie from "../assets/lottie/login-lottie.json";
 import AuthContext from '../context/AuthContext';
 import { useLocation, useNavigate } from 'react-router-dom';
 const Login = () => {
-    const { signInUser, signInWithGoogle } = useContext(AuthContext);
+    const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -15,24 +15,26 @@ const Login = () => {
         const password = form.password.value;
 
         signInUser(email, password)
-        .then((result) => {
-            console.log("sign In", result.user);
-            navigate(location?.state ? location.state : "/");
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     const handleGoogleLogin = () => {
         signInWithGoogle()
-        .then((result) => {
-            console.log("Google Login",result.user);
-            navigate(location?.state ? location.state : "/");
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+            .then((result) => {
+                const user = result.user;
+                setUser(user);
+                navigate(location?.state ? location.state : "/");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     return (

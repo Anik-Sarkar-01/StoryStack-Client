@@ -25,7 +25,7 @@ const WishCard = ({ wishItem, wishlist, setWishlist }) => {
                 if (data.deletedCount > 0) {
                     Swal.fire({
                         title: "Deleted!",
-                        text: "Your file has been deleted.",
+                        text: "Blog has been removed!",
                         icon: "success"
                     });
                     const remaining = wishlist.filter(item => item._id !== id);
@@ -53,7 +53,7 @@ const WishCard = ({ wishItem, wishlist, setWishlist }) => {
                 <p>{author?.name}</p>
                 <div className="justify-start card-actions">
                     <Link to={`/blog/${id}`} className="btn btn-primary">Details</Link>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Delete</button>
+                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Remove Wishlist</button>
                 </div>
             </div>
         </div>

@@ -12,7 +12,7 @@ const RecentBlogs = () => {
     }, [])
 
     const fetchAllBlogs = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/all-blogs`);
+        const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/recent-blogs`);
         setBlogs(data);
     }
 

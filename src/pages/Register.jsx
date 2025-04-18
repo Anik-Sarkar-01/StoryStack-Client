@@ -2,15 +2,20 @@ import Lottie from 'lottie-react';
 import React, { useContext } from 'react';
 import registerLottie from "../assets/lottie/register-lottie.json"
 import AuthContext from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
+
+    const navigate = useNavigate();
 
 
     const handleSubmit = e => {
         e.preventDefault();
         const form = e.target;
+        const name = form.name.value;
+        const photo = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
 
@@ -20,13 +25,20 @@ const Register = () => {
         }
 
         createUser(email, password)
-        .then(result => {
-            console.log(result.user);
-        })
-        .catch(error => {
-            console.log(error.message);
-        })
-
+            .then(result => {
+                const user = result.user;
+                setUser(user);
+                updateUserProfile({ displayName: name, photoURL: photo })
+                    .then(() => {
+                        navigate("/");
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    })
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
     }
 
 
@@ -40,10 +52,18 @@ const Register = () => {
                     <div className="card-body">
                         <h1 className="text-5xl font-bold">Register now!</h1>
                         <form onSubmit={handleSubmit} className="fieldset">
+                            <label className="fieldset-label">Name</label>
+                            <input type="name" className="input" name='name' placeholder="Name" />
+
+                            <label className="fieldset-label">Photo URL</label>
+                            <input type="url" className="input" name='photoUrl' placeholder="Photo Url" />
+
                             <label className="fieldset-label">Email</label>
                             <input type="email" className="input" name='email' placeholder="Email" />
+
                             <label className="fieldset-label">Password</label>
                             <input type="password" className="input" name='password' placeholder="Password" />
+
                             <div><a className="link link-hover">Forgot password?</a></div>
                             <button className="btn btn-neutral mt-4">Register</button>
                         </form>
