@@ -1,14 +1,16 @@
 import React from 'react';
 import Banner from '../components/Banner';
 import RecentBlogs from '../components/RecentBlogs';
+import Newsletter from '../components/Newsletter';
 
 const Home = () => {
     return (
-        <div>
+        <div className='space-y-10 py-10'>
             <Banner></Banner>
-            <div className='py-16'>
-                <RecentBlogs></RecentBlogs>
-            </div>
+
+            <RecentBlogs></RecentBlogs>
+
+            <Newsletter></Newsletter>
         </div>
     );
 };

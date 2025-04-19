@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Toaster } from 'react-hot-toast';
 
 const MainLayout = () => {
     return (
@@ -14,7 +15,7 @@ const MainLayout = () => {
             </div>
 
             <Footer></Footer>
-
+            <Toaster></Toaster>
         </div>
     );
 };
