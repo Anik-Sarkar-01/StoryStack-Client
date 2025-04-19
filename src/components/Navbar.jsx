@@ -2,17 +2,27 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import logo from "../assets/logo-64.png";
+import { FaHome } from "react-icons/fa";
+import { MdNoteAdd } from "react-icons/md";
+import { BsPostcardHeartFill } from "react-icons/bs";
+import { FaFire } from "react-icons/fa6";
+import { RiHeartAdd2Fill } from "react-icons/ri";
+import { IoLogOutSharp } from "react-icons/io5";
+import { IoLogInSharp } from "react-icons/io5";
+
+
+
 
 const Navbar = () => {
 
     const { user, signOutUser } = useContext(AuthContext);
 
     const navItems = <>
-        <li><NavLink to={"/"}>Home</NavLink></li>
-        <li><NavLink to={"/all-blogs"}>All Blogs</NavLink></li>
-        <li><NavLink to={"/add-blog"}>Add Blog</NavLink></li>
-        <li><NavLink to={"/featured-blog"}>Featured Blogs</NavLink></li>
-        <li><NavLink to={"/wish-list"}>Wishlist</NavLink></li>
+        <li><NavLink to={"/"}><FaHome className='text-xl text-[#F98514]'/>Home</NavLink></li>
+        <li><NavLink to={"/add-blog"}><MdNoteAdd className='text-xl text-[#F98514]'/>Add Blog</NavLink></li>
+        <li><NavLink to={"/all-blogs"}><BsPostcardHeartFill className='text-xl text-[#F98514]'/>All Blogs</NavLink></li>
+        <li><NavLink to={"/featured-blog"}><FaFire className='text-xl text-[#F98514]'/>Featured Blogs</NavLink></li>
+        <li><NavLink to={"/wish-list"}><RiHeartAdd2Fill className='text-xl text-[#F98514]'/>Wishlist</NavLink></li>
     </>
 
     const handleSignOut = () => {
@@ -53,12 +63,13 @@ const Navbar = () => {
                     user ? <>
                         <div className='flex items-center gap-3'>
                             <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
-                            <button onClick={handleSignOut} className='btn'>Logout</button>
+                            <button onClick={handleSignOut} className='btn rounded-none bg-[#F98514] text-white'>Logout <IoLogOutSharp className='text-xl'/> </button>
                         </div>
                     </> : <>
                         <div className='flex gap-3'>
-                            <Link to="/register" className='btn'>Register</Link>
-                            <Link to="/login" className="btn">Login</Link>
+                            <Link to="/login" className="btn rounded-none bg-[#F98514] text-white">Login <IoLogInSharp className='text-xl'/>
+                            </Link>
+                            <Link to="/register" className='btn rounded-none bg-[#F98514] text-white'>Register <IoLogInSharp className='text-xl'></IoLogInSharp> </Link>
                         </div>
                     </>
                 }

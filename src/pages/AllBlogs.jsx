@@ -58,7 +58,7 @@ const AllBlogs = () => {
                 <button onClick={handleReset} className='btn rounded-none bg-[#F98514] text-white'>Reset</button>
             </div>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-10 px-5'>
                 {
                     blogs.map(blog => <BlogCard key={blog._id} blog={blog}></BlogCard>)
                 }
