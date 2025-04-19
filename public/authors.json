@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Ava Thompson",
+        "photo": "https://randomuser.me/api/portraits/women/53.jpg",
+        "bio": "Full-stack developer sharing coding tips and modern tech trends.",
+        "facebook": "https://www.facebook.com",
+        "linkedin": "https://www.linkedin.com",
+        "instagram": "https://www.instagram.com"
+    },
+    {
+        "name": "Liam Patel",
+        "photo": "https://randomuser.me/api/portraits/men/86.jpg",
+        "bio": "Foodie and explorer writing about world cuisines and street food gems.",
+        "facebook": "https://www.facebook.com",
+        "linkedin": "https://www.linkedin.com",
+        "instagram": "https://www.instagram.com"
+    },
+    {
+        "name": "Sophia Martinez",
+        "photo": "https://randomuser.me/api/portraits/women/91.jpg",
+        "bio": "Health blogger focused on mental wellness and balanced living.",
+        "facebook": "https://www.facebook.com",
+        "linkedin": "https://www.linkedin.com",
+        "instagram": "https://www.instagram.com"
+    },
+    {
+        "name": "Ethan Zhang",
+        "photo": "https://randomuser.me/api/portraits/men/26.jpg",
+        "bio": "Backend developer passionate about clean code and software architecture.",
+        "facebook": "https://www.facebook.com",
+        "linkedin": "https://www.linkedin.com",
+        "instagram": "https://www.instagram.com"
+    }
+]

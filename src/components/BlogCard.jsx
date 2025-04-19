@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+
 
 const BlogCard = ({ blog }) => {
     const { user } = useContext(AuthContext);
@@ -34,9 +36,13 @@ const BlogCard = ({ blog }) => {
     return (
         <div className="card rounded-none bg-base-100 shadow-xl">
             <figure>
-                <img
-                    src={imageUrl}
-                    alt="" />
+                <PhotoProvider>
+                    <PhotoView src={imageUrl}>
+                        <img
+                            src={imageUrl}
+                            alt="" />
+                    </PhotoView>
+                </PhotoProvider>
             </figure>
             <div className="card-body space-y-2">
                 <div className='flex justify-between'>
