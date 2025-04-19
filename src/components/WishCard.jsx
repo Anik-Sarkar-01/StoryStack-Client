@@ -46,14 +46,14 @@ const WishCard = ({ wishItem, wishlist, setWishlist }) => {
 
 
     return (
-        <div className="card w-72 bg-base-100 card-sm shadow-sm">
+        <div className="card w-72 bg-base-100 card-sm shadow-sm rounded-none">
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                <p>{shortDescription}</p>
-                <p>{author?.name}</p>
+                <p>{shortDescription}..</p>
+                <p>Author: <span className='font-bold'>{author?.name}</span></p>
                 <div className="justify-start card-actions">
-                    <Link to={`/blog/${id}`} className="btn btn-primary">Details</Link>
-                    <button onClick={() => handleDelete(_id)} className="btn btn-primary">Remove Wishlist</button>
+                    <Link to={`/blog/${id}`} className="btn rounded-none bg-[#F98514] text-white">Details</Link>
+                    <button onClick={() => handleDelete(_id)} className="btn rounded-none bg-[#F98514] text-white">Remove Wishlist</button>
                 </div>
             </div>
         </div>

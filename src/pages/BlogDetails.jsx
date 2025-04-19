@@ -66,7 +66,7 @@ const BlogDetails = () => {
                     backgroundColor: "#F98514",
                 }} className='z-50'>
             </motion.div>
-            <div className="card bg-base-100 max-w-5xl mx-auto rounded-none py-10">
+            <div className="card bg-base-100 max-w-5xl mx-auto rounded-none py-10 px-5">
                 <figure>
                     <PhotoProvider>
                         <PhotoView src={imageUrl}>

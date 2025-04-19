@@ -8,6 +8,8 @@ import { motion } from "motion/react";
 const BlogCard = ({ blog }) => {
     const { user } = useContext(AuthContext);
     const { _id, title, imageUrl, category, shortDescription, longDescription, author, publishDate } = blog || {};
+    console.log(blog);
+
     const handleWishList = async () => {
         const wishBlogData = {
             id: _id,

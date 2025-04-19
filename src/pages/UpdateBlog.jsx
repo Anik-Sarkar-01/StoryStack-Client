@@ -47,7 +47,7 @@ const UpdateBlog = () => {
 
     return (
         <div className='flex justify-center items-center my-12'>
-            <section className='p-2 md:p-5 mx-auto bg-white shadow-sm rounded-none '>
+            <section className='p-5 mx-auto bg-white shadow-sm rounded-none w-2xl lg:w-3xl '>
                 <h2 className='text-xl font-semibold '>
                     Update Blog - <span className='border-b-2 border-b-[#F98514]'>"{title}"</span>
                 </h2>
