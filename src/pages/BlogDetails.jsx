@@ -5,11 +5,14 @@ import axios from 'axios';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 import { IoIosHeart } from "react-icons/io";
+// eslint-disable-next-line no-unused-vars
+import { motion, useScroll } from "motion/react"
 
 
 const BlogDetails = () => {
     const { user } = useContext(AuthContext);
-    console.log(user);
+    const { scrollYProgress } = useScroll()
+
     const { _id, title, imageUrl, category, longDescription, publishDate, author } = useLoaderData();
 
     const [comments, setComments] = useState([]);
@@ -50,8 +53,20 @@ const BlogDetails = () => {
     }
 
     return (
-        <div className='py-10 px-5'>
-            <div className="card bg-base-100 max-w-5xl mx-auto rounded-none">
+        <div>
+            <motion.div id="scroll-indicator"
+                style={{
+                    scaleX: scrollYProgress,
+                    position: "fixed",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: 8,
+                    originX: 0,
+                    backgroundColor: "#F98514",
+                }} className='z-50'>
+            </motion.div>
+            <div className="card bg-base-100 max-w-5xl mx-auto rounded-none py-10">
                 <figure>
                     <PhotoProvider>
                         <PhotoView src={imageUrl}>
@@ -90,7 +105,7 @@ const BlogDetails = () => {
                     </>}
                     <div>
                         {
-                            (comments.length > 0) && <h2 className='text-sm'><span className='font-semibold'>{comments.length}</span> comments on - <span className='font-bold'>"{title}"</span></h2> 
+                            (comments.length > 0) && <h2 className='text-sm'><span className='font-semibold'>{comments.length}</span> comments on - <span className='font-bold'>"{title}"</span></h2>
                         }
                         {
                             comments.map(comment =>
