@@ -54,7 +54,6 @@ const AddBlog = () => {
                     <div className='w-4/5 mx-auto hidden md:block'>
                         <Lottie animationData={applicationLottie} loop={true}></Lottie>
                     </div>
-
                 </div>
 
                 <form className='flex-1' onSubmit={handleSubmit}>
@@ -73,7 +72,7 @@ const AddBlog = () => {
                         </div>
 
                         <div>
-                            <label className='text-gray-700'>
+                            <label>
                                 Image URL
                             </label>
                             <input
@@ -86,7 +85,7 @@ const AddBlog = () => {
                         </div>
 
                         <div>
-                            <label className='text-gray-700'>
+                            <label>
                                 Email Address
                             </label>
                             <input
@@ -101,7 +100,7 @@ const AddBlog = () => {
 
 
                         <div className='flex flex-col gap-2'>
-                            <label className='text-gray-700'>
+                            <label>
                                 Category
                             </label>
                             <select
@@ -118,7 +117,7 @@ const AddBlog = () => {
                         </div>
                     </div>
                     <div className='flex flex-col gap-2 mt-4'>
-                        <label className='text-gray-700 '>
+                        <label>
                             Short Description
                         </label>
                         <input
@@ -130,7 +129,7 @@ const AddBlog = () => {
                         />
                     </div>
                     <div className='flex flex-col gap-2 mt-4'>
-                        <label className='text-gray-700 ' >
+                        <label>
                             Long Description
                         </label>
                         <textarea

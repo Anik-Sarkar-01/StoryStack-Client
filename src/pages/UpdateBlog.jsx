@@ -3,10 +3,12 @@ import AuthContext from '../context/AuthContext';
 import { format } from 'date-fns';
 import axios from 'axios';
 import { useLoaderData } from 'react-router-dom';
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react"
 
 const UpdateBlog = () => {
     const blogData = useLoaderData();
-    const {_id, title, imageUrl, category, shortDescription, longDescription } = blogData;
+    const { _id, title, imageUrl, category, shortDescription, longDescription } = blogData;
     const { user } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
@@ -44,64 +46,68 @@ const UpdateBlog = () => {
     }
 
     return (
-        <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
-            <section className=' p-2 md:p-6 mx-auto bg-white rounded-md shadow-md '>
-                <h2 className='text-lg font-semibold text-gray-700 capitalize '>
-                    Publish a Blog
+        <div className='flex justify-center items-center my-12'>
+            <section className='p-2 md:p-5 mx-auto bg-white shadow-sm rounded-none '>
+                <h2 className='text-xl font-semibold '>
+                    Update Blog - <span className='border-b-2 border-b-[#F98514]'>"{title}"</span>
                 </h2>
 
-                <form onSubmit={handleSubmit}>
-                    <div className='grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2'>
+                <form className='pt-8' onSubmit={handleSubmit}>
+                    <div className='grid grid-cols-1 gap-5 md:grid-cols-2'>
                         <div>
-                            <label className='text-gray-700' htmlFor='blog_title'>
+                            <label>
                                 Blog Title
                             </label>
                             <input
-                                id='blog_title'
                                 name='blog_title'
                                 defaultValue={title}
                                 type='text'
-                                className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring'
+                                required
+                                className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                             />
                         </div>
 
                         <div>
-                            <label className='text-gray-700' htmlFor='image_url'>
+                            <label>
                                 Image URL
                             </label>
                             <input
-                                id='image_url'
                                 name='image_url'
                                 defaultValue={imageUrl}
                                 type='url'
-                                className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring'
+                                required
+                                className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                             />
                         </div>
 
                         <div>
-                            <label className='text-gray-700' htmlFor='emailAddress'>
+                            <label>
                                 Email Address
                             </label>
                             <input
-                                id='emailAddress'
                                 type='email'
                                 name='email'
                                 defaultValue={user?.email}
                                 readOnly
-                                className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
+                                required
+                                className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                             />
                         </div>
 
 
                         <div className='flex flex-col gap-2 '>
-                            <label className='text-gray-700 ' htmlFor='category'>
+                            <label>
                                 Category
                             </label>
                             <select
                                 name='category'
-                                id='category'
                                 defaultValue={category}
-                                className='border border-gray-200 p-2 rounded-md'
+                                required
+                                className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                             >
                                 <option>Technology</option>
                                 <option>Food</option>
@@ -111,32 +117,34 @@ const UpdateBlog = () => {
                         </div>
                     </div>
                     <div className='flex flex-col gap-2 mt-4'>
-                        <label className='text-gray-700 ' htmlFor='short_description'>
+                        <label>
                             Short Description
                         </label>
                         <input
-                            id='short_description'
                             name='short_description'
                             type='text'
                             defaultValue={shortDescription}
-                            className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 focus:outline-none focus:ring'
+                            required
+                            className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                         />
                     </div>
                     <div className='flex flex-col gap-2 mt-4'>
-                        <label className='text-gray-700 ' htmlFor='long_description'>
+                        <label>
                             Long Description
                         </label>
                         <textarea
-                            className='block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-200 rounded-md  focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40  focus:outline-none focus:ring'
                             name='long_description'
-                            id='long_description'
                             defaultValue={longDescription}
+                            required
+                            className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
+                                 focus:border-[#F98514] focus:ring-[#F98514]'
                         ></textarea>
                     </div>
                     <div className='flex justify-start mt-6'>
-                        <button className='btn'>
+                        <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="btn bg-[#F98514] text-white rounded-none">
                             Update
-                        </button>
+                        </motion.button>
                     </div>
                 </form>
             </section>
