@@ -4,6 +4,8 @@ import AuthContext from '../context/AuthContext';
 import { format } from "date-fns";
 import applicationLottie from "../assets/lottie/application-lottie.json";
 import Lottie from 'lottie-react';
+// eslint-disable-next-line no-unused-vars
+import { motion } from "motion/react"
 
 const AddBlog = () => {
     const { user } = useContext(AuthContext);
@@ -64,6 +66,7 @@ const AddBlog = () => {
                             <input
                                 name='blog_title'
                                 type='text'
+                                required
                                 className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'
                             />
@@ -76,6 +79,7 @@ const AddBlog = () => {
                             <input
                                 name='image_url'
                                 type='url'
+                                required
                                 className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'
                             />
@@ -102,6 +106,7 @@ const AddBlog = () => {
                             </label>
                             <select
                                 name='category'
+                                required
                                 className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'
                             >
@@ -119,6 +124,7 @@ const AddBlog = () => {
                         <input
                             name='short_description'
                             type='text'
+                            required
                             className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'
                         />
@@ -128,6 +134,7 @@ const AddBlog = () => {
                             Long Description
                         </label>
                         <textarea
+                            required
                             className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'
                             name='long_description'
@@ -135,9 +142,9 @@ const AddBlog = () => {
                         ></textarea>
                     </div>
                     <div className='flex justify-start mt-6'>
-                        <button className='btn rounded-none bg-[#F98514] text-white'>
+                        <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="btn bg-[#F98514] text-white rounded-none">
                             Submit
-                        </button>
+                        </motion.button>
                     </div>
                 </form>
             </section>
