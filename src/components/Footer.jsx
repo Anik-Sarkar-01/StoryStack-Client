@@ -11,7 +11,7 @@ const Footer = () => {
                     StoryStack Ltd.
                 </p>
             </div>
-            <footer className="footer sm:footer-horizontal text-base-content p-10">
+            <footer className="footer sm:footer-horizontal place-items-center text-base-content p-10">
                 <aside className='w-xs'>
                     <h4 className='footer-title'>About Us</h4>
                     <p className='text-justify leading-loose'>StoryStack is your hub for stories, insights, and inspiration across tech, coding, food, travel, and health. Explore, learn, and stay curious.</p>
@@ -23,15 +23,9 @@ const Footer = () => {
                     <a className="link link-hover">All Blogs</a>
                     <a className="link link-hover">Featured Blogs</a>
                 </nav>
+                
                 <nav>
-                    <h6 className="footer-title">Company</h6>
-                    <a className="link link-hover">About us</a>
-                    <a className="link link-hover">Contact</a>
-                    <a className="link link-hover">Careers</a>
-                    
-                </nav>
-                <nav>
-                    <h6 className="footer-title">Legal</h6>
+                    <h6 className="footer-title">Follow Us</h6>
                     <a className="link link-hover flex items-center gap-2"><FaFacebook></FaFacebook> Facebook</a>
                     <a className="link link-hover flex items-center gap-2"><FaLinkedin></FaLinkedin>Linkedin</a>
                     <a className="link link-hover flex items-center gap-2"><FaInstagram></FaInstagram>Instagram</a>

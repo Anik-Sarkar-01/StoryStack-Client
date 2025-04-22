@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
-        <div className="hero bg-[#FEF9E1] min-h-screen">
+        <div className="hero bg-gradient-to-r shadow-sm rounded-none from-gray-50 to-[#FEF9E1] min-h-screen">
             <div className="hero-content flex-col lg:flex-row-reverse gap-8">
                 <div className='flex-1'>
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed">Discover the life changing stories !</h1>

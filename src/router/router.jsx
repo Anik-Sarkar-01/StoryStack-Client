@@ -12,6 +12,7 @@ import AddBlog from "../pages/AddBlog";
 import UpdateBlog from "../pages/UpdateBlog";
 import WishList from "../pages/WishList";
 import FeaturedBlog from "../pages/FeaturedBlog";
+import BloggerCornerDetails from "../pages/BloggerCornerDetails";
 
 const router = createBrowserRouter([
     {
@@ -64,6 +65,11 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register></Register>
+            },
+            {
+                path: 'blogger-corner/:id',
+                element: <BloggerCornerDetails></BloggerCornerDetails>,
+                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/blogger-corner/${params.id}`)
             }
         ]
     },
