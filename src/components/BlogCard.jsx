@@ -10,7 +10,6 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const BlogCard = ({ blog }) => {
     const { user } = useContext(AuthContext);
     const { _id, title, imageUrl, category, shortDescription, longDescription, author, publishDate } = blog || {};
-    console.log(blog);
 
     const handleWishList = async () => {
         const wishBlogData = {
@@ -27,7 +26,7 @@ const BlogCard = ({ blog }) => {
 
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-wishlist`, wishBlogData);
-            console.log(data);
+            
         } catch (err) {
             console.log(err);
         }

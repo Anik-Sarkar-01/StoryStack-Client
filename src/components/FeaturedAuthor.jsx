@@ -15,7 +15,7 @@ const FeaturedAuthors = () => {
 
         <div>
             <div className='text-center space-y-3 pb-5'>
-                <h2 className='text-3xl font-semibold'>Featured Writers</h2>
+                <h2 className='text-3xl font-semibold'>Featured <span className="text-[#F98514]">Writers</span></h2>
                 <p className='text-center'>Every great blog has a voice. Here are the brilliant voices behind ours.</p>
             </div>
             <Marquee pauseOnHover={true} speed={20}>

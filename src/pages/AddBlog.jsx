@@ -38,7 +38,7 @@ const AddBlog = () => {
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-blog`, formData);
             form.reset();
-            console.log(data);
+           
         } catch (err) {
             console.log(err);
         }

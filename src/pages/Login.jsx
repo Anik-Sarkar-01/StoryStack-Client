@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import loginLottie from "../assets/lottie/login-lottie.json";
 import AuthContext from '../context/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 const Login = () => {
     const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext);
     const location = useLocation();

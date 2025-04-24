@@ -37,9 +37,9 @@ const UpdateBlog = () => {
         };
 
         try {
-            console.log(_id);
+            
             const { data } = await axios.put(`${import.meta.env.VITE_apiUrl}/all-blogs/${_id}`, formData);
-            console.log(data);
+           
         } catch (err) {
             console.log(err);
         }

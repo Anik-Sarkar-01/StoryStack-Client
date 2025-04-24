@@ -24,7 +24,7 @@ const BlogDetails = () => {
 
     const fetchAllBlogs = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/all-comments/${_id}`);
-        console.log(_id);
+        
         setComments(data);
     }
 
@@ -45,7 +45,7 @@ const BlogDetails = () => {
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-comment`, commentData);
             form.reset();
-            console.log(data);
+           
             fetchAllBlogs();
         } catch (err) {
             console.log(err);

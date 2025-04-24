@@ -13,7 +13,7 @@ const Newsletter = () => {
         <div className='bg-base-200 p-10'>
             <div className='max-w-3xl mx-auto'>
                 <div className='text-center space-y-3 pb-5'>
-                    <h2 className='text-3xl font-semibold'>Subscribe to our Newsletter</h2>
+                    <h2 className='text-3xl font-semibold'>Subscribe to our <span className="text-[#F98514]">Newsletter</span></h2>
                     <p>Get the latest updates and news right in your inbox!</p>
                 </div>
                 <form onSubmit={notify} className="join flex justify-center py-12 bg-gradient-to-r from-white to-[#FEF9E1] shadow-sm ">

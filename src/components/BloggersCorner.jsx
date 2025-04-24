@@ -27,7 +27,7 @@ const BloggersCorner = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 rounded-none">
                     {tips.map((tip, index) => (
-                        <Card className='space-y-3 p-3' key={index} sx={{ maxWidth: 345 }}>
+                        <Card className='space-y-3 p-3 ' key={index} sx={{ maxWidth: 345 }}>
                             <CardContent className='card-body items-center text-center'>
                                 <div>
                                     {(index == 0) && <FaFeatherAlt className="text-3xl text-[#F98514]"></FaFeatherAlt>}

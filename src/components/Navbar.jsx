@@ -28,10 +28,10 @@ const Navbar = () => {
     const handleSignOut = () => {
         signOutUser()
             .then(() => {
-                console.log("Sign Out Successful");
+                
             })
             .catch((error) => {
-                console.log(error.message);
+                
             })
     }
 
