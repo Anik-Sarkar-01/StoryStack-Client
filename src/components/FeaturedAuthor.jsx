@@ -10,7 +10,7 @@ const FeaturedAuthors = () => {
             .then(data => setAuthors(data))
     }, [])
 
-    console.log(authors);
+
     return (
 
         <div>

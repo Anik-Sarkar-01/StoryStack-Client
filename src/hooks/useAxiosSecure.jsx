@@ -10,30 +10,27 @@ const axiosInstance = axios.create({
 
 const useAxiosSecure = () => {
 
-    const { signOutUser } = useContext(AuthContext);
+    const { signOutUser, toastError } = useContext(AuthContext);
     const navigate = useNavigate();
 
     useEffect(() => {
         axiosInstance.interceptors.response.use(response => {
             return response;
         }, error => {
-            console.log("Error Caught in interceptor", error);
             if (error.status === 401 || error.status === 403) {
-                console.log("need to logout the user")
                 signOutUser()
                     .then(() => {
-                        console.log("log out user chor");
                         navigate('/login');
                     })
                     .catch(error => {
-                        console.log(error);
+                        toastError(error.message);
                     })
             }
 
             return Promise.reject(error);
         })
 
-    }, [navigate, signOutUser])
+    }, [navigate, signOutUser, toastError])
     return axiosInstance;
 };
 

@@ -8,7 +8,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 const BlogCard = ({ blog }) => {
-    const { user } = useContext(AuthContext);
+    const { user, toastSuccess, toastError } = useContext(AuthContext);
     const { _id, title, imageUrl, category, shortDescription, longDescription, author, publishDate } = blog || {};
 
     const handleWishList = async () => {
@@ -26,9 +26,17 @@ const BlogCard = ({ blog }) => {
 
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-wishlist`, wishBlogData);
-            
+            if (data.insertedId) {
+                toastSuccess("Added to Wishlist!")
+            }
+            else {
+                toastError("Error Occurred! Try Again.")
+            }
+
         } catch (err) {
-            console.log(err);
+            if (err) {
+                toastError("Already Added to Wishlist!")
+            }
         }
 
     }

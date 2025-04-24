@@ -15,23 +15,26 @@ import { IoLogInSharp } from "react-icons/io5";
 
 const Navbar = () => {
 
-    const { user, signOutUser } = useContext(AuthContext);
+    const { user, signOutUser, toastSuccess, toastError } = useContext(AuthContext);
 
     const navItems = <>
-        <li><NavLink to={"/"}><FaHome className='text-xl text-[#F98514]'/>Home</NavLink></li>
-        <li><NavLink to={"/add-blog"}><MdNoteAdd className='text-xl text-[#F98514]'/>Add Blog</NavLink></li>
-        <li><NavLink to={"/all-blogs"}><BsPostcardHeartFill className='text-xl text-[#F98514]'/>All Blogs</NavLink></li>
-        <li><NavLink to={"/featured-blog"}><FaFire className='text-xl text-[#F98514]'/>Featured Blogs</NavLink></li>
-        <li><NavLink to={"/wish-list"}><RiHeartAdd2Fill className='text-xl text-[#F98514]'/>Wishlist</NavLink></li>
+        <li><NavLink to={"/"}><FaHome className='text-xl text-[#F98514]' />Home</NavLink></li>
+        <li><NavLink to={"/add-blog"}><MdNoteAdd className='text-xl text-[#F98514]' />Add Blog</NavLink></li>
+        <li><NavLink to={"/all-blogs"}><BsPostcardHeartFill className='text-xl text-[#F98514]' />All Blogs</NavLink></li>
+        <li><NavLink to={"/featured-blog"}><FaFire className='text-xl text-[#F98514]' />Featured Blogs</NavLink></li>
+        <li><NavLink to={"/wish-list"}><RiHeartAdd2Fill className='text-xl text-[#F98514]' />Wishlist</NavLink></li>
     </>
 
     const handleSignOut = () => {
         signOutUser()
             .then(() => {
-                
+                toastSuccess("Logout Successful")
             })
             .catch((error) => {
-                
+                if (error) {
+                    toastError("Error Occurred! Try again!")
+                }
+
             })
     }
 
@@ -49,8 +52,8 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='flex items-center'>
-                    <img className='w-14' src={logo} alt="" />
-                    <a className="btn btn-ghost text-xl">StoryStack</a>
+                    <img className='w-8 md:w-14' src={logo} alt="" />
+                    <a className="btn btn-ghost text-[11px] sm:text-lg md:text-xl">StoryStack</a>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -63,13 +66,13 @@ const Navbar = () => {
                     user ? <>
                         <div className='flex items-center gap-3'>
                             <img className='w-10 rounded-full' src={user?.photoURL} alt="" />
-                            <button onClick={handleSignOut} className='btn rounded-none bg-[#F98514] text-white'>Logout <IoLogOutSharp className='text-xl'/> </button>
+                            <button onClick={handleSignOut} className='btn btn-sm md:btn-md rounded-none bg-[#F98514] text-white'>Logout <IoLogOutSharp className='text-xl' /> </button>
                         </div>
                     </> : <>
                         <div className='flex gap-3'>
-                            <Link to="/login" className="btn rounded-none bg-[#F98514] text-white">Login <IoLogInSharp className='text-xl'/>
+                            <Link to="/login" className="btn btn-sm md:btn-md rounded-none bg-[#F98514] text-white">Login <IoLogInSharp className='text-xl' />
                             </Link>
-                            <Link to="/register" className='btn rounded-none bg-[#F98514] text-white'>Register <IoLogInSharp className='text-xl'></IoLogInSharp> </Link>
+                            <Link to="/register" className='btn btn-sm md:btn-md rounded-none bg-[#F98514] text-white'>Register <IoLogInSharp className='text-xl'></IoLogInSharp> </Link>
                         </div>
                     </>
                 }

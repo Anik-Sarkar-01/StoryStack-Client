@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
 
-    const { createUser, setUser, updateUserProfile } = useContext(AuthContext);
+    const { createUser, setUser, updateUserProfile, toastSuccess, toastError } = useContext(AuthContext);
 
     const navigate = useNavigate();
 
@@ -31,13 +31,18 @@ const Register = () => {
                 updateUserProfile({ displayName: name, photoURL: photo })
                     .then(() => {
                         navigate("/");
+                        toastSuccess("Registration Successful!")
                     })
                     .catch(error => {
-                        console.log(error);
+                        if (error) {
+                            toastError("Error Occurred! Try Again.")
+                        }
                     })
             })
             .catch(error => {
-                console.log(error.message);
+                if (error) {
+                    toastError("Error Occurred! Try Again.")
+                }
             })
     }
 

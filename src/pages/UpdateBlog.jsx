@@ -9,7 +9,7 @@ import { motion } from "motion/react"
 const UpdateBlog = () => {
     const blogData = useLoaderData();
     const { _id, title, imageUrl, category, shortDescription, longDescription } = blogData;
-    const { user } = useContext(AuthContext);
+    const { user, toastSuccess, toastError } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -39,9 +39,14 @@ const UpdateBlog = () => {
         try {
             
             const { data } = await axios.put(`${import.meta.env.VITE_apiUrl}/all-blogs/${_id}`, formData);
+            if(data.modifiedCount){
+                toastSuccess("Update Successful!")
+            }
            
         } catch (err) {
-            console.log(err);
+            if(err){
+                toastError("Error Occurred! Try Again.")
+            }
         }
     }
 

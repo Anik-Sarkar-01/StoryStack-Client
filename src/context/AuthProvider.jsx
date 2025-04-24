@@ -3,6 +3,7 @@ import AuthContext from './AuthContext';
 import { createUserWithEmailAndPassword, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import auth from '../firebase/firebase.config';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 const AuthProvider = ({ children }) => {
@@ -34,6 +35,14 @@ const AuthProvider = ({ children }) => {
         return signOut(auth);
     }
 
+    const toastSuccess = (message) => {
+        return toast.success(message);
+    }
+
+    const toastError = (message) => {
+        return toast.error(message);
+    }
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             setUser(currentUser);
@@ -42,15 +51,13 @@ const AuthProvider = ({ children }) => {
                 const userEmail = { email: currentUser.email };
 
                 axios.post(`${import.meta.env.VITE_apiUrl}/jwt`, userEmail, { withCredentials: true })
-                    .then(res => {
-                        console.log("login", res.data);
+                    .then(() => {
                         setLoading(false);
                     })
             }
             else {
                 axios.post(`${import.meta.env.VITE_apiUrl}/logout`, {}, { withCredentials: true })
-                    .then(res => {
-                        console.log("logout", res.data);
+                    .then(() => {
                         setLoading(false);
                     })
             }
@@ -69,6 +76,8 @@ const AuthProvider = ({ children }) => {
         signInWithGoogle,
         signOutUser,
         updateUserProfile,
+        toastSuccess,
+        toastError,
     }
 
     return (

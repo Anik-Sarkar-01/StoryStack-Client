@@ -8,7 +8,7 @@ import Lottie from 'lottie-react';
 import { motion } from "motion/react"
 
 const AddBlog = () => {
-    const { user } = useContext(AuthContext);
+    const { user, toastSuccess, toastError } = useContext(AuthContext);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -38,9 +38,18 @@ const AddBlog = () => {
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-blog`, formData);
             form.reset();
-           
+
+            if (data.insertedId) {
+                toastSuccess("Blog Added!")
+            }
+            else {
+                toastError("Error Occurred! Try Again.")
+            }
+
         } catch (err) {
-            console.log(err);
+            if (err) {
+                toastError("Error Occurred! Try Again.")
+            }
         }
 
     }

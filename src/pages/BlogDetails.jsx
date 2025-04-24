@@ -10,7 +10,7 @@ import { motion, useScroll } from "motion/react"
 
 
 const BlogDetails = () => {
-    const { user } = useContext(AuthContext);
+    const { user, toastSuccess, toastError } = useContext(AuthContext);
     const { scrollYProgress } = useScroll()
 
     const { _id, title, imageUrl, category, longDescription, publishDate, author } = useLoaderData();
@@ -24,7 +24,7 @@ const BlogDetails = () => {
 
     const fetchAllBlogs = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/all-comments/${_id}`);
-        
+
         setComments(data);
     }
 
@@ -45,10 +45,18 @@ const BlogDetails = () => {
         try {
             const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-comment`, commentData);
             form.reset();
-           
+            if (data.insertedId) {
+                toastSuccess("Comment Added!")
+            }
+            else {
+                toastError("Error Occurred! Try Again.")
+            }
+
             fetchAllBlogs();
         } catch (err) {
-            console.log(err);
+            if (err) {
+                toastError("Error Occurred! Try Again.")
+            }
         }
     }
 

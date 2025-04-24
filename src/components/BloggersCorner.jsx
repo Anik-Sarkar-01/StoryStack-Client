@@ -25,7 +25,7 @@ const BloggersCorner = () => {
                 <h2 className="text-3xl font-bold text-center mb-10">
                     Blogger's Corner: <span className="text-[#F98514]">Tips & Tricks</span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 rounded-none">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 rounded-none place-items-center">
                     {tips.map((tip, index) => (
                         <Card className='space-y-3 p-3 ' key={index} sx={{ maxWidth: 345 }}>
                             <CardContent className='card-body items-center text-center'>
@@ -38,7 +38,7 @@ const BloggersCorner = () => {
                                 <h3 className="card-title text-lg font-semibold">{tip.title}</h3>
                                 <p className="text-sm text-gray-600">{tip.description}</p>
                             </CardContent>
-                            <CardActions className='flex'>
+                            <CardActions className='flex justify-center items-center'>
                                 <Link to={'https://www.facebook.com'} target="_blank" className='btn bg-[#FEFAE7] rounded-none'>Share Now</Link>
                                 <Link to={`/blogger-corner/${tip._id}`} className='btn bg-[#FEFAE7] rounded-none'>Learn More</Link>
                             </CardActions>

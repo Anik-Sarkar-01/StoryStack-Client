@@ -5,7 +5,7 @@ import AuthContext from '../context/AuthContext';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const { signInUser, setUser, signInWithGoogle } = useContext(AuthContext);
+    const { signInUser, setUser, signInWithGoogle, toastSuccess, toastError } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -19,10 +19,13 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                toastSuccess("Login Successful!")
                 navigate(location?.state ? location.state : "/");
             })
             .catch((error) => {
-                console.log(error.message);
+                if (error) {
+                    toastError("Error Occurred! Try Again.")
+                }
             })
     }
 
@@ -31,10 +34,13 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 setUser(user);
+                toastSuccess("Login Successful!")
                 navigate(location?.state ? location.state : "/");
             })
             .catch((error) => {
-                console.log(error.message);
+                if(error){
+                    toastError("Error Occurred! Try Again.")
+                }
             })
     }
 
