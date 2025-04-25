@@ -13,6 +13,7 @@ import UpdateBlog from "../pages/UpdateBlog";
 import WishList from "../pages/WishList";
 import FeaturedBlog from "../pages/FeaturedBlog";
 import BloggerCornerDetails from "../pages/BloggerCornerDetails";
+import ErrorPage from "../pages/ErrorPage";
 
 
 
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <MainLayout></MainLayout>,
-        errorElement: <h2>Page Not Found!</h2>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
