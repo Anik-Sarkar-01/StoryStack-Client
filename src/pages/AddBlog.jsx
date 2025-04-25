@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import { format } from "date-fns";
@@ -6,9 +5,12 @@ import applicationLottie from "../assets/lottie/application-lottie.json";
 import Lottie from 'lottie-react';
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
+import useAxiosSecure from '../hooks/useAxiosSecure';
+
 
 const AddBlog = () => {
     const { user, toastSuccess, toastError } = useContext(AuthContext);
+    const axiosSecure = useAxiosSecure();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -36,7 +38,7 @@ const AddBlog = () => {
         };
 
         try {
-            const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-blog`, formData);
+            const { data } = await axiosSecure.post(`/add-blog`, formData);
             form.reset();
 
             if (data.insertedId) {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import AuthorCard from './authorCard';
 import Marquee from "react-fast-marquee";
+import AuthorCard from './AuthorCard';
 
 const FeaturedAuthors = () => {
     const [authors, setAuthors] = useState([]);

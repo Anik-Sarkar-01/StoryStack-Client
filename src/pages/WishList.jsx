@@ -12,7 +12,6 @@ const WishList = () => {
     useEffect(() => {
         const fetchAllBlogs = async () => {
             const { data } = await axiosSecure.get(`/all-wishlist?email=${user.email}`)
-
             setWishlist(data);
         };
         fetchAllBlogs();

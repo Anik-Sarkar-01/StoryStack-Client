@@ -1,15 +1,29 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import { format } from 'date-fns';
-import axios from 'axios';
-import { useLoaderData } from 'react-router-dom';
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
+import useAxiosSecure from '../hooks/useAxiosSecure';
+import { useParams } from 'react-router-dom';
 
 const UpdateBlog = () => {
-    const blogData = useLoaderData();
-    const { _id, title, imageUrl, category, shortDescription, longDescription } = blogData;
+    const axiosSecure = useAxiosSecure();
+    const [blogData, setBlogData] = useState({});
     const { user, toastSuccess, toastError } = useContext(AuthContext);
+    const params = useParams();
+    const [blogCategory, setBlogCategory] = useState('');
+    const { _id, title, imageUrl, shortDescription, longDescription } = blogData;
+
+    useEffect(() => {
+        const fetchBlog = async () => {
+            const { data } = await axiosSecure.get(`/all-blogs/${params.id}`);
+            setBlogData(data);
+            setBlogCategory(data?.category);
+        };
+        fetchBlog();
+    }, [axiosSecure, params.id]);
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -37,14 +51,15 @@ const UpdateBlog = () => {
         };
 
         try {
-            
-            const { data } = await axios.put(`${import.meta.env.VITE_apiUrl}/all-blogs/${_id}`, formData);
-            if(data.modifiedCount){
+
+            const { data } = await axiosSecure.put(`${import.meta.env.VITE_apiUrl}/all-blogs/${_id}`, formData);
+            if (data.modifiedCount) {
                 toastSuccess("Update Successful!")
             }
-           
+
         } catch (err) {
-            if(err){
+            if (err) {
+                console.log(err);
                 toastError("Error Occurred! Try Again.")
             }
         }
@@ -109,7 +124,8 @@ const UpdateBlog = () => {
                             </label>
                             <select
                                 name='category'
-                                defaultValue={category}
+                                value={blogCategory}
+                                onChange={(e) => setBlogCategory(e.target.value)}
                                 required
                                 className='block w-full px-5 py-2 mt-3 bg-white border-2 border-gray-100 focus:outline-none focus:ring
                                  focus:border-[#F98514] focus:ring-[#F98514]'

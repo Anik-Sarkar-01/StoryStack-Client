@@ -12,10 +12,7 @@ const Footer = () => {
                 </p>
             </div>
             <footer className="footer sm:footer-horizontal place-items-center text-base-content p-10">
-                <aside className='w-xs'>
-                    <h4 className='footer-title'>About Us</h4>
-                    <p className='text-justify leading-loose'>StoryStack is your hub for stories, insights, and inspiration across tech, coding, food, travel, and health. Explore, learn, and stay curious.</p>
-                </aside>
+                
 
                 <nav>
                     <h6 className="footer-title">Quick Links</h6>
@@ -30,6 +27,11 @@ const Footer = () => {
                     <a className="link link-hover flex items-center gap-2"><FaLinkedin></FaLinkedin>Linkedin</a>
                     <a className="link link-hover flex items-center gap-2"><FaInstagram></FaInstagram>Instagram</a>
                 </nav>
+
+                <aside className='w-xs'>
+                    <h4 className='footer-title ps-28 border-b-8 border-b-[#F98514]'>About Us</h4>
+                    <p className='text-justify leading-loose'>StoryStack is your hub for stories, insights, and inspiration across tech, coding, food, travel, and health. Explore, learn, and stay curious.</p>
+                </aside>
             </footer>
         </div>
     );

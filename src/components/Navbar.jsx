@@ -53,7 +53,7 @@ const Navbar = () => {
                 </div>
                 <div className='flex items-center'>
                     <img className='w-8 md:w-14' src={logo} alt="" />
-                    <a className="btn btn-ghost text-[11px] sm:text-lg md:text-xl">StoryStack</a>
+                    <NavLink to={"/"} className="text-[11px] sm:text-lg md:text-xl">StoryStack</NavLink>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

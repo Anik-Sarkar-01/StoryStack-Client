@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import axios from 'axios';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -7,26 +7,41 @@ import { format } from 'date-fns';
 import { IoIosHeart } from "react-icons/io";
 // eslint-disable-next-line no-unused-vars
 import { motion, useScroll } from "motion/react"
+import useAxiosSecure from '../hooks/useAxiosSecure';
 
 
 const BlogDetails = () => {
+    const axiosSecure = useAxiosSecure();
     const { user, toastSuccess, toastError } = useContext(AuthContext);
     const { scrollYProgress } = useScroll()
-
-    const { _id, title, imageUrl, category, longDescription, publishDate, author } = useLoaderData();
-
+    const params = useParams();
+    const [blog, setBlog] = useState({});
     const [comments, setComments] = useState([]);
 
     useEffect(() => {
-        fetchAllBlogs();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        const fetchBlog = async () => {
+            const { data } = await axiosSecure.get(`/all-blogs/${params.id}`);
+            setBlog(data);
+        };
+        fetchBlog();
+    }, [axiosSecure, params.id]);
+
+
+    const { _id, title, imageUrl, category, longDescription, publishDate, author } = blog || {};
+
+
 
     const fetchAllBlogs = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/all-comments/${_id}`);
-
         setComments(data);
-    }
+    };
+    
+    useEffect(() => {
+        if (_id) fetchAllBlogs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [_id]);
+
+
 
     const handleComment = async (e) => {
         e.preventDefault();
@@ -53,6 +68,7 @@ const BlogDetails = () => {
             }
 
             fetchAllBlogs();
+
         } catch (err) {
             if (err) {
                 toastError("Error Occurred! Try Again.")

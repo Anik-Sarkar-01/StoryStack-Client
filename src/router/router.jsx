@@ -14,6 +14,9 @@ import WishList from "../pages/WishList";
 import FeaturedBlog from "../pages/FeaturedBlog";
 import BloggerCornerDetails from "../pages/BloggerCornerDetails";
 
+
+
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -39,14 +42,13 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <BlogDetails></BlogDetails>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/all-blogs/${params.id}`)
             },
             {
                 path: 'update-blog/:id',
                 element: <PrivateRoute>
                     <UpdateBlog></UpdateBlog>
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/all-blogs/${params.id}`)
+                
             },
             {
                 path: 'featured-blog',

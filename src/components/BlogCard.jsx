@@ -5,6 +5,8 @@ import AuthContext from '../context/AuthContext';
 // eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 
 const BlogCard = ({ blog }) => {
@@ -46,18 +48,18 @@ const BlogCard = ({ blog }) => {
                 <PhotoProvider>
                     <PhotoView src={imageUrl}>
                         <img
-                            src={imageUrl}
+                            src={imageUrl || <Skeleton />}
                             alt="" />
                     </PhotoView>
                 </PhotoProvider>
             </figure>
             <div className="card-body space-y-2">
                 <div className='flex justify-between'>
-                    <div className="badge rounded-none bg-[#F4EBD0]">Category : {category}</div>
-                    <div className="badge rounded-none bg-[#F4EBD0]">{publishDate}</div>
+                    <div className="badge rounded-none bg-[#F4EBD0]">Category : {category || <Skeleton />}</div>
+                    <div className="badge rounded-none bg-[#F4EBD0]">{publishDate || <Skeleton />}</div>
                 </div>
-                <h2 className="card-title">{title}</h2>
-                <p>{shortDescription}..</p>
+                <h2 className="card-title">{title || <Skeleton />}</h2>
+                <p>{shortDescription || <Skeleton />}..</p>
 
                 <Link to={'/all-blogs'}>
 

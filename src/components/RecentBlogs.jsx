@@ -4,6 +4,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import BlogCard from './BlogCard';
 
+
 const RecentBlogs = () => {
     const [blogs, setBlogs] = useState([]);
 
