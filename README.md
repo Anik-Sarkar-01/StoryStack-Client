@@ -41,3 +41,26 @@ StoryStack is a modern blogging platform where users can create, manage, and eng
 - Environment variables for Firebase and MongoDB credentials.
 - JWT Authentication for secure private routes.
 
+## NPM Packages Used
+
+### Client-Side NPM Packages:
+- **@mui/material**: Material-UI components for React.
+- **@tanstack/react-table**: A powerful and flexible table library for React.
+- **Axios**: A promise-based HTTP client for the browser and Node.js.
+- **Lottie-react**: A React component for Lottie animations.
+- **Motion**: Library for creating animations in React with Framer Motion.
+- **React-fast-marquee**: A fast marquee component for React.
+- **React-hot-toast**: A library to show toast notifications in React apps.
+- **React-icons**: A library to use SVG icons in React applications.
+- **React-intersection-observer**: React implementation of the Intersection Observer API for lazy loading and animations.
+- **React-loading-skeleton**: React component for displaying skeleton loading screens.
+- **React-photo-view**: A React component for viewing images in full-screen mode.
+- **Sweetalert2**: A library for displaying customizable pop-up alerts in the app.
+
+### Server-Side NPM Packages:
+- **Express**: A fast, unopinionated web framework for Node.js to handle routing and middleware.
+- **MongoDB**: MongoDB Node.js driver to interact with MongoDB databases.
+- **Cookie-parser**: Middleware to parse cookies in HTTP requests.
+- **CORS**: Middleware to enable Cross-Origin Resource Sharing (CORS), allowing the server to communicate with different domains.
+- **Dotenv**: A module to load environment variables from a `.env` file for secure configuration management.
+- **JSONWebToken (JWT)**: A library for creating and verifying JSON Web Tokens used for secure authentication.
