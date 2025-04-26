@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import BlogCard from './BlogCard';
-// eslint-disable-next-line no-unused-vars
 import { motion } from 'framer-motion';
 import { InView } from 'react-intersection-observer';
 

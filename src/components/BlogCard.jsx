@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
-// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import Skeleton from 'react-loading-skeleton'

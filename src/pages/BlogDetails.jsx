@@ -5,7 +5,6 @@ import axios from 'axios';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { format } from 'date-fns';
 import { IoIosHeart } from "react-icons/io";
-// eslint-disable-next-line no-unused-vars
 import { motion, useScroll } from "motion/react"
 import useAxiosSecure from '../hooks/useAxiosSecure';
 

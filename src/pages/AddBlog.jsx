@@ -3,7 +3,6 @@ import AuthContext from '../context/AuthContext';
 import { format } from "date-fns";
 import applicationLottie from "../assets/lottie/application-lottie.json";
 import Lottie from 'lottie-react';
-// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
 import useAxiosSecure from '../hooks/useAxiosSecure';
 

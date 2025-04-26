@@ -2,7 +2,6 @@ import React from 'react';
 import bannerImg1 from "../assets/bannerImg-01.jpg"
 import bannerImg2 from "../assets/bannerImg-02.jpg"
 import bannerImg3 from "../assets/bannerImg-03.jpg"
-// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
@@ -15,7 +14,7 @@ const Banner = () => {
                 <div className='flex-1'>
                     <h1 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold leading-relaxed">Discover the life changing stories !</h1>
                     <p className=" text-center py-6 leading-relaxed">
-                        Step into the lives of remarkable individuals and uncover powerful stories of growth, resilience, and transformation that will inspire you to see the world and yourself in a whole new light.
+                        StoryStack is your space to explore ideas, share experiences, and connect through words. Whether you're a seasoned writer or just starting out, our platform makes it easy to craft, publish, and discover compelling blogs across a variety of topics.
                     </p>
                     <Link className='flex items-center justify-center' to={'/all-blogs'}>
                         <motion.button whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }} className="btn bg-[#F98514] text-white rounded-none">

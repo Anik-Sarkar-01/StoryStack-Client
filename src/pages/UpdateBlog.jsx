@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext';
 import { format } from 'date-fns';
-// eslint-disable-next-line no-unused-vars
 import { motion } from "motion/react"
 import useAxiosSecure from '../hooks/useAxiosSecure';
 import { useParams } from 'react-router-dom';
@@ -59,7 +58,6 @@ const UpdateBlog = () => {
 
         } catch (err) {
             if (err) {
-                console.log(err);
                 toastError("Error Occurred! Try Again.")
             }
         }
