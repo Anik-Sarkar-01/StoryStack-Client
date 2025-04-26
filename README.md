@@ -4,7 +4,7 @@
 StoryStack is a modern blogging platform where users can create, manage, and engage with blogs. It features user authentication, blog management, and a dynamic UI.
 
 ## Live URL
-[Your Live Site](https://story-stack-d45ff.web.app/)
+[Live Site](https://story-stack-d45ff.web.app/)
 
 ## Key Features
 - **Authentication**: Secure login with email/password and Google authentication.
