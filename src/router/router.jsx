@@ -49,7 +49,7 @@ const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <UpdateBlog></UpdateBlog>
                 </PrivateRoute>,
-                
+
             },
             {
                 path: 'featured-blog',
@@ -72,7 +72,11 @@ const router = createBrowserRouter([
             {
                 path: 'blogger-corner/:id',
                 element: <BloggerCornerDetails></BloggerCornerDetails>,
-                loader: ({ params }) => fetch(`${import.meta.env.VITE_apiUrl}/blogger-corner/${params.id}`)
+                loader: async ({ params }) => {
+                    const res = await fetch('/blogger-corner.json');
+                    const data = await res.json();
+                    return data.find(item => item._id === params.id);
+                }
             }
         ]
     },

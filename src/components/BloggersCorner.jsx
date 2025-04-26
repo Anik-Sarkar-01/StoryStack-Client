@@ -15,7 +15,7 @@ const BloggersCorner = () => {
     }, [])
 
     const fetchAllBlogs = async () => {
-        const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/blogger-corner`);
+        const { data } = await axios.get(`/blogger-corner.json`);
         setTips(data);
     }
 
