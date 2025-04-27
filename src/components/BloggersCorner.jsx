@@ -10,14 +10,15 @@ import axios from 'axios';
 
 const BloggersCorner = () => {
     const [tips, setTips] = useState([]);
-    useEffect(() => {
-        fetchAllBlogs();
-    }, [])
 
-    const fetchAllBlogs = async () => {
-        const { data } = await axios.get(`/blogger-corner.json`);
+    useEffect(() => {
+        fetchAllTips();
+    }, []);
+
+    const fetchAllTips = async () => {
+        const { data } = await axios.get(`${import.meta.env.VITE_apiUrl}/blogger-corner`);
         setTips(data);
-    }
+    };
 
     return (
         <section className="py-16 bg-base-200">

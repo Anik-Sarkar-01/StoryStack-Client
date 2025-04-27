@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 import { motion } from "motion/react";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
@@ -11,38 +11,44 @@ import 'react-loading-skeleton/dist/skeleton.css'
 const BlogCard = ({ blog }) => {
     const { user, toastSuccess, toastError } = useContext(AuthContext);
     const { _id, title, imageUrl, category, shortDescription, longDescription, author, publishDate } = blog || {};
+    const navigate = useNavigate();
 
     const handleWishList = async () => {
-        const wishBlogData = {
-            id: _id,
-            title,
-            imageUrl,
-            category,
-            shortDescription,
-            longDescription,
-            publishDate,
-            author,
-            userEmail: user?.email,
+        if (user) {
+            const wishBlogData = {
+                id: _id,
+                title,
+                imageUrl,
+                category,
+                shortDescription,
+                longDescription,
+                publishDate,
+                author,
+                userEmail: user?.email,
+            }
+
+            try {
+                const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-wishlist`, wishBlogData);
+                if (data.insertedId) {
+                    toastSuccess("Added to Wishlist!")
+                }
+                else {
+                    toastError("Error Occurred! Try Again.")
+                }
+
+            } catch (err) {
+                if (err) {
+                    toastError("Already Added to Wishlist!")
+                }
+            }
         }
-
-        try {
-            const { data } = await axios.post(`${import.meta.env.VITE_apiUrl}/add-wishlist`, wishBlogData);
-            if (data.insertedId) {
-                toastSuccess("Added to Wishlist!")
-            }
-            else {
-                toastError("Error Occurred! Try Again.")
-            }
-
-        } catch (err) {
-            if (err) {
-                toastError("Already Added to Wishlist!")
-            }
+        else {
+            navigate('/login');
         }
 
     }
     return (
-        <div className="card rounded-none bg-base-100 shadow-xl">
+        <div className="card rounded-none bg-base-100 shadow-xl h-[500px]">
             <figure>
                 <PhotoProvider>
                     <PhotoView src={imageUrl}>

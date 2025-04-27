@@ -22,7 +22,7 @@ const RecentBlogs = () => {
                 Recent <span className="text-[#F98514]">Blogs</span>
             </h1>
 
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 xl:px-0'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-5 xl:px-0 justify-center items-center place-items-center'>
                 {blogs.map(blog => (
                     <InView key={blog._id} triggerOnce={false} threshold={0.1}>
                         {({ inView, ref }) => (
@@ -31,6 +31,7 @@ const RecentBlogs = () => {
                                 initial={{ opacity: 0, y: 50 }}
                                 animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }} 
                                 transition={{ duration: 0.5 }}
+                                
                             >
                                 <BlogCard blog={blog} />
                             </motion.div>

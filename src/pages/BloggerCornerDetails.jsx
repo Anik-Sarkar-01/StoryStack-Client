@@ -4,8 +4,6 @@ import { Link, useLoaderData } from 'react-router-dom';
 const BloggerCornerDetails = () => {
     const data = useLoaderData();
 
-    console.log(data);
-
     return (
         <section className="min-h-screen bg-base-200 my-10 py-10 px-4">
             <div className="max-w-4xl mx-auto">
